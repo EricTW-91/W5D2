@@ -1,0 +1,30 @@
+@import "./reset";
+
+body{
+    background: #222;
+    color: #fff;
+}
+
+table{
+    border: 3px solid #fff;
+    border-collapse: collapse;
+    width: 50%;
+    text-align: center;
+    margin: 2vh auto 2vh auto;
+}
+
+td, th{
+    border: 1px solid #fff;
+}
+
+form{
+    width: 50%;
+    margin: 2vh auto 2vh auto;
+ 
+}
+
+button{
+    margin: 2vh auto 2vh auto;
+    width: 300px;
+    height: 200px;
+}

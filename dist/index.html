@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/main.css">
+    </head>
+    <body>
+        <table id="mainTable">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Popularity</th>
+            </tr>
+            <tr>
+                <td id="mealName_0"></td>
+                <td id="mealPrice_0"></td>
+                <td id="mealPop_0"></td>
+            </tr>
+            <tr>
+                <td id="mealName_1"></td>
+                <td id="mealPrice_1"></td>
+                <td id="mealPop_1"></td>
+            </tr>
+            <tr>
+                <td id="mealName_2"></td>
+                <td id="mealPrice_2"></td>
+                <td id="mealPop_2"></td>
+            </tr>
+        </table>
+
+        <!-- <p id="demo"></p> -->
+
+        <form id="mainForm">
+            <label name="inputName">Name: </label>
+            <input type="text" name="inputName"><br>
+            <label name="inputPrice">Price: </label>
+            <input type="text" name="inputPrice"><br>
+            <label name="inputPop">Popularity: </label>
+            <input type="text" name="inputPop"><br>
+        </form>
+
+        <button type="button" onclick="addNewItem()">Add new item</button>
+    </body>
+    <script>
+        let mealArray = [
+            {
+                name: "Burger",
+                price: 13,
+                popularity: 4.3
+            }, {
+                name: "Pizza",
+                price: 9,
+                popularity: 3.8
+            }, {
+                name: "Vege", 
+                price: 10,
+                popularity: 4.1
+            }
+        ];
+        
+        for(i=0; i<mealArray.length; i++){
+            document.getElementById("mealName_"+i).innerHTML = mealArray[i].name;
+            document.getElementById("mealPrice_"+i).innerHTML = mealArray[i].price;
+            document.getElementById("mealPop_"+i).innerHTML = mealArray[i].popularity;
+        };
+
+        //addEventListener
+        let x = document.getElementById("mainTable");
+        x.addEventListener("mouseover", changeColor_over);
+        x.addEventListener("mouseout", changeColor_out);
+
+        function changeColor_over(){
+            // document.getElementById("demo").innerHTML += "Moused over!<br>";
+            document.getElementById("mainTable").style.borderColor = "blue";
+            // document.getElementsByTagName("th").style.borderColor = "blue";
+            // document.getElementsByTagName("td").style.borderColor = "blue";
+        }
+
+        function changeColor_out(){
+            // document.getElementById("demo").innerHTML += "Moused over!<br>";
+            document.getElementById("mainTable").style.borderColor = "white";
+        }
+
+        //Form input new table row
+        function addNewItem(){
+            let form = document.forms["mainForm"];
+            let table = document.getElementById("mainTable");
+            let row = table.insertRow(1);
+            let cell0 = row.insertCell(0);
+            let cell1 = row.insertCell(1);
+            let cell2 = row.insertCell(2);
+            cell0.innerHTML = form.inputName.value;
+            cell1.innerHTML = form.inputPrice.value;
+            cell2.innerHTML = form.inputPop.value;
+
+            // document.getElementById("mainTable").insertRow(1).insertCell(1).innerHTML = document.forms["mainForm"].inputPrice.value;
+
+            // document.getElementById("mainTable").insertRow(1).insertCell(2).innerHTML = document.forms["mainForm"].inputPop.value;
+
+            alert("You've insert a meal! Name: " + document.forms["mainForm"].inputName.value + " Price: " + document.forms["mainForm"].inputPrice.value + " Popularity: " + document.forms["mainForm"].inputPop.value);
+        }
+        
+    </script>
+</html>
